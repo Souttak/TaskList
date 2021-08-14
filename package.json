@@ -1,0 +1,12 @@
+{
+  "name": "TaskList",
+  "version": "1.0.0",
+  "description": "A little SPA to track tasks",
+  "main": "main.js",
+  "scripts": {
+    "start": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Facundo Delaporte",
+  "license": "ISC"
+}

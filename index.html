@@ -4,13 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasklist</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
-        <h1>TASK LIST</h1>
-    </header>
-    <div>
-
+    
+    <div class="maincontainer">
+        
+        <header id="taskHeader">
+            <h1>TASK LIST</h1>
+            <div id="taskAddition">
+                <input type="text" id="taskInput" placeholder="Write your task here" class="taskAdditionPiece">
+                <button type="submit" class="taskAdditionPiece" id="addTaskButton" onclick="addTask()">Add</button>
+            </div>
+        </header>
+        
+        <ul id="taskList" class="list">
+            <li class="task">
+                <div class="taskContent">
+                    <input type="checkbox" name="finished">
+                    <p class="taskDesc">Tarea 1</p>
+                </div>
+                <button onclick="removeTask(this)">Del</button>
+            </li>
+            <li class="task">
+                <div class="taskContent">
+                    <input type="checkbox" name="finished">
+                    <p class="taskDesc">Tarea 2</p>
+                </div>
+                <button onclick="removeTask(this)">Del</button>
+            </li>
+            <li class="task">
+                <div class="taskContent">
+                    <input type="checkbox" name="finished">
+                    <p class="taskDesc">Tarea 3</p>
+                </div>
+                <button onclick="removeTask(this)">Del</button>
+            </li>
+        </ul>
+        
     </div>
 </body>
+
+<script src="./main.js"></script>
 </html>

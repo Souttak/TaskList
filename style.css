@@ -8,18 +8,28 @@
     font-family: 'OpenSans-ExtraBold';
     font-weight: normal;
     font-style: normal;
-    src: url('./fonts/OpenSans-ExtraBold.ttf');
+    src: url('../resources/fonts/OpenSans-ExtraBold.ttf');
 }
 
 @font-face {
     font-family: 'OpenSans-Regular';
     font-weight: normal;
     font-style: normal;
-    src: url('./fonts/OpenSans-Regular.ttf');
+    src: url('../resources/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../resources/fonts/OpenSans-SemiBold.ttf');
 }
 
 body {
     background-color: darkslategrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -28,73 +38,43 @@ h1 {
     color: white;
     text-shadow: 0px 3px 6px black;
     text-align: center;
+    margin-top: 3%;
 }
 
-#taskHeader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: darkcyan;
-    margin: 5px;
-    padding: 10px;
-    height: 100%;
-    box-shadow: 0 3px 8px black;
-    border-radius: 5px 5px 0 0;
-}
-
-#taskAddition {
-    display: flex;
-    margin: 5px;
-}
-
-.taskAdditionPiece {
-    margin: 5px;
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    padding: 5px;
-    height: 100%;
+.card {
     background-color: cadetblue;
-    box-shadow: 0 3px 8px black;
-    border-radius: 0 0 5px 5px;
-}
-
-.task {
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    padding-bottom:20%;
+    margin: 3% auto;
+    box-shadow: 0px 1px 6px black;
     display: flex;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    margin: 3px;
-    padding: 5px;
-    box-shadow: 0px 1px 8px black;
-}
-
-.taskContent {
-    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.taskDesc {
+#tpContainer {
     display: flex;
-    padding-left: 5px;
-    font-family: OpenSans-Regular;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-input[type='checkbox'] {
-    vertical-align: middle;
+#introductionMessage {
+    font-family: OpenSans-SemiBold;
+    font-size: 1.1vw;
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
-input[type='checkbox']:checked + p {
-    text-decoration: line-through;
+a {
+    text-decoration: none;
+    font-family: OpenSans-SemiBold;
+    font-size: 1.5vw;
 }
 
-.maincontainer {
-    margin: 15% 30%;
-}
-
-.deleteTaskButton, #addTaskButton {
+button {
     font-family: OpenSans-Regular;
     border: none;
     border-radius: 1.5px;
@@ -106,8 +86,15 @@ input[type='checkbox']:checked + p {
     padding: 0px;
 }
 
-#addTaskButton {
-    width: 35px;
+.tpButton {
+    background-color: whitesmoke;
+    width: 5vw;
+    height: 5vw;
+    padding: 50%, 0;
+    margin: 10px;
+    text-decoration: none;
+    font-family: OpenSans-Regular;
+    font-size: 1.5vw;
 }
 
 button:active {

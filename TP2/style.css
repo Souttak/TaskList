@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'OpenSans-ExtraBold';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../resources/fonts/OpenSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../resources/fonts/OpenSans-Regular.ttf');
+}
+
+body {
+    background-color: darkslategrey;
+}
+
+h1 {
+    font-family: OpenSans-ExtraBold;
+    font-size: 3vw;
+    color: white;
+    text-shadow: 0px 3px 6px black;
+    text-align: center;
+}
+
+#taskHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkcyan;
+    margin: 5px;
+    padding: 10px;
+    height: 100%;
+    box-shadow: 0 3px 8px black;
+    border-radius: 5px 5px 0 0;
+}
+
+#taskAddition {
+    display: flex;
+    margin: 5px;
+}
+
+.taskAdditionPiece {
+    margin: 5px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px;
+    height: 100%;
+    background-color: cadetblue;
+    box-shadow: 0 3px 8px black;
+    border-radius: 0 0 5px 5px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    margin: 3px;
+    padding: 5px;
+    box-shadow: 0px 1px 8px black;
+}
+
+.taskContent {
+    display: flex;
+    align-items: center;
+}
+
+.taskDesc {
+    display: flex;
+    padding-left: 5px;
+    font-family: OpenSans-Regular;
+}
+
+input[type='checkbox'] {
+    vertical-align: middle;
+}
+
+input[type='checkbox']:checked + p {
+    text-decoration: line-through;
+}
+
+.maincontainer {
+    margin: 15% 30%;
+}
+
+.deleteTaskButton, #addTaskButton, #fullscreenButton, .copyTaskButton, .shareTaskButton {
+    font-family: OpenSans-Regular;
+    border: none;
+    border-radius: 1.5px;
+    background-color: white;
+    box-shadow: 0px 1px 3px black;
+    outline: none;
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+}
+
+#addTaskButton {
+    width: 35px;
+}
+
+.copyTaskButton, .shareTaskButton {
+    margin-right: 3px;
+}
+
+button:active {
+    box-shadow: 0px -2px 5px black;
+}
+
+#title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#fullscreenButton {
+    margin-left: 1vw;
+}

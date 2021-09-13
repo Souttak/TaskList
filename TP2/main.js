@@ -1,3 +1,5 @@
+window.localStorage;
+
 const taskList = document.getElementById('taskList');
 const taskInput = document.getElementById('taskInput');
 
@@ -128,41 +130,40 @@ function fullscreen(reference) {
   }
 }
 
-function getLocation() {
-  return new Promise((resolve, reject) => {
-    if ('geolocation' in navigator) {
-      const coords = {};
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          coords.lat = position.coords.latitude;
-          coords.lon = position.coords.longitude;
-        },
-        (error) => {
-          console.log(`Location :\n${error.message}`);
-          coords.lat = null;
-          coords.lon = null;
-        }
-      );
-      resolve(coords);
-    } else {
-      reject("Your browser doesn't support geolocation.");
-    }
-  });
+async function getLocation() {
+  if ('geolocation' in navigator) {
+    const position = await new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+
+    return {
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+    };
+  } else {
+    alert("Your browser doesn't support geolocation.");
+    return {
+      lat: null,
+      lon: null,
+    };
+  }
 }
 
 async function storeTask(taskDesc) {
-  let location;
-  try {
-    location = await getLocation();
-  } catch (error) {
-    alert(error.message);
-  }
-
   const task = {
     id: new Date().getTime(),
     desc: taskDesc,
     done: false,
-    location: location,
+    location: await getLocation(),
   };
   tasks.push(JSON.stringify(task));
+  storage.setItem('taks', tasks);
 }
+
+window.onload = () => {
+  tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  tasks.forEach((task) => {
+    console.table(task);
+  });
+};

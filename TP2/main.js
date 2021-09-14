@@ -92,7 +92,6 @@ const addTask = async (task = null) => {
                 })
             );
             setTasksInStorage();
-            console.log(tasks);
         }
     }
 };
@@ -103,6 +102,20 @@ const removeTask = (reference) => {
 
     tasks = tasks.filter((task) => JSON.parse(task).desc != taskDesc);
     setTasksInStorage();
+};
+
+const updateTask = (reference) => {
+    const taskDesc = reference.closest('li').childNodes[1].innerText;
+    const index = tasks.findIndex((task) => JSON.parse(task).desc == taskDesc);
+
+    if (index > -1) {
+        let task = JSON.parse(tasks[index]);
+        task.done = !task.done;
+        tasks[index] = JSON.stringify(task);
+        setTasksInStorage();
+    } else {
+        console.warn("The task couldn't be updated due to a failure finding its index.");
+    }
 };
 
 const shareTask = (reference) => {
@@ -173,6 +186,7 @@ window.onload = () => {
 // Making all the functions global so they can be called from the DOM.
 window.addTask = addTask;
 window.removeTask = removeTask;
+window.updateTask = updateTask;
 window.shareTask = shareTask;
 window.copyTask = copyTask;
 window.fullscreen = fullscreen;

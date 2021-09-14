@@ -3,8 +3,8 @@
     It was impossible to make it look clean having this components taking all the space!
 */
 
-const checkbox = `<input type="checkbox" name="finished">`;
-const checkedCheckbox = `<input type="checkbox" name="finished" checked="true">`;
+const checkbox = `<input type="checkbox" name="finished" onclick="updateTask(this)">`;
+const checkedCheckbox = `<input type="checkbox" name="finished" onclick="updateTask(this)" checked="true">`;
 
 const shareButton = `
     <button class="shareTaskButton" onclick="shareTask(this)">

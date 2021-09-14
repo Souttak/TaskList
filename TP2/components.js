@@ -7,7 +7,7 @@ const checkbox = `<input type="checkbox" name="finished" onclick="updateTask(thi
 const checkedCheckbox = `<input type="checkbox" name="finished" onclick="updateTask(this)" checked="true">`;
 
 const shareButton = `
-    <button class="shareTaskButton" onclick="shareTask(this)">
+    <button class="shareTaskButton" onclick="shareTask(this)" aria-label="Share task">
         <svg width="100%" height="100%">
             <circle fill="none" cx="17.5" cy="18.5" r="1.5"></circle>
             <circle fill="none" cx="5.5" cy="11.5" r="1.5"></circle>
@@ -18,7 +18,7 @@ const shareButton = `
 `;
 
 const copyButton = `
-    <button class="copyTaskButton" onclick="copyTask(this)">
+    <button class="copyTaskButton" onclick="copyTask(this)" aria-label="Copy task">
         <svg width="100%" height="100%">
             <path d="M19,3h-2.25c0-0.553-0.447-1-1-1h-7.5c-0.553,0-1,0.447-1,1H5C3.897,3,3,3.897,3,5v15c0,1.103,0.897,2,2,2h14 c1.103,0,2-0.897,2-2V5C21,3.897,20.103,3,19,3z M19,20H5V5h2v2h10V5h2V20z"></path>
         </svg>
@@ -26,7 +26,7 @@ const copyButton = `
 `;
 
 const deleteButton = `
-    <button class="deleteTaskButton" onclick="removeTask(this)">
+    <button class="deleteTaskButton" onclick="removeTask(this)" aria-label="Delete task">
         <svg width="100%" height="100%">
             <path fill="none" d="M17.004 20L17.003 8h-1-8-1v12H17.004zM13.003 10h2v8h-2V10zM9.003 10h2v8h-2V10zM9.003 4H15.003V6H9.003z"></path>
             <path d="M5.003,20c0,1.103,0.897,2,2,2h10c1.103,0,2-0.897,2-2V8h2V6h-3h-1V4c0-1.103-0.897-2-2-2h-6c-1.103,0-2,0.897-2,2v2h-1h-3 v2h2V20z M9.003,4h6v2h-6V4z M8.003,8h8h1l0.001,12H7.003V8H8.003z"></path>
@@ -36,7 +36,7 @@ const deleteButton = `
 `;
 
 const activateFullscreenButton = `
-    <button id="fullscreenButton" onclick="fullscreen(this)">
+    <button id="fullscreenButton" onclick="fullscreen(this)" aria-label="Activate fullscreen">
         <svg width="100%" height="100%">
         <path d="M5 5L10 5 10 3 3 3 3 10 5 10zM10 19L5 19 5 14 3 14 3 21 10 21zM21 14L19 14 19 19 14 19 14 21 21 21zM19 10L21 10 21 3 14 3 14 5 19 5z"/>
         </svg>
@@ -44,7 +44,7 @@ const activateFullscreenButton = `
 `;
 
 const deactivateFullscreenButton = `
-    <button id="fullscreenButton" onclick="fullscreen(this)">
+    <button id="fullscreenButton" onclick="fullscreen(this)" aria-label="Deactivate fullscreen">
         <svg width="100%" height="100%">
         <path d="M10 4L8 4 8 8 4 8 4 10 10 10zM8 20L10 20 10 14 4 14 4 16 8 16zM20 14L14 14 14 20 16 20 16 16 20 16zM20 8L16 8 16 4 14 4 14 10 20 10z"/>
         </svg>

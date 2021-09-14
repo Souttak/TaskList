@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A web app designed to track to-do lists.">
     <title>Tasklist</title>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -20,7 +21,7 @@
             </div>
             <div id="taskAddition">
                 <input type="text" id="taskInput" placeholder="Write your task here" class="taskAdditionPiece">
-                <button type="submit" class="taskAdditionPiece" id="addTaskButton" onclick="addTask()">Add</button>
+                <button type="submit" class="taskAdditionPiece" id="addTaskButton" onclick="addTask()" aria-label="Add task">Add</button>
             </div>
         </header>
         

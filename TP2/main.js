@@ -73,45 +73,47 @@ const buildTask = (description, done = false) => {
 const addTask = async (task = null) => {
     if (task) {
         const newTask = buildTask(task.desc, task.done);
+        newTask.dataset.id = task.id;
         taskList.appendChild(newTask);
     } else {
         const taskDesc = taskInput.value.trim();
         if (taskDesc != '' && taskDesc != null) {
             // Adding the new task to the DOM.
             const newTask = buildTask(taskDesc);
+            const id = new Date().getTime();
+
+            newTask.dataset.id = id;
             taskList.appendChild(newTask);
             taskInput.value = '';
 
             // Storing the task as a JSON object for future recovery.
-            tasks.push(
-                JSON.stringify({
-                    id: new Date().getTime(),
-                    desc: taskDesc,
-                    done: false,
-                    location: await getLocation(),
-                })
-            );
+            tasks.push({
+                id: id,
+                desc: taskDesc,
+                done: false,
+                location: await getLocation(),
+            });
             setTasksInStorage();
         }
     }
 };
 
 const removeTask = (reference) => {
-    const taskDesc = reference.closest('li').childNodes[1].innerText;
+    const taskID = reference.closest('li').dataset.id;
     reference.closest('li').remove();
 
-    tasks = tasks.filter((task) => JSON.parse(task).desc != taskDesc);
+    tasks = tasks.filter((task) => task.id != taskID);
     setTasksInStorage();
 };
 
 const updateTask = (reference) => {
-    const taskDesc = reference.closest('li').childNodes[1].innerText;
-    const index = tasks.findIndex((task) => JSON.parse(task).desc == taskDesc);
+    const taskID = reference.closest('li').dataset.id;
+    const index = tasks.findIndex((task) => task.id == taskID);
 
     if (index > -1) {
-        let task = JSON.parse(tasks[index]);
+        let task = tasks[index];
         task.done = !task.done;
-        tasks[index] = JSON.stringify(task);
+        tasks[index] = task;
         setTasksInStorage();
     } else {
         console.warn("The task couldn't be updated due to a failure finding its index.");
@@ -179,7 +181,7 @@ const getLocation = async () => {
 window.onload = () => {
     tasks = getTasksFromStorage();
     tasks.forEach((task) => {
-        addTask(JSON.parse(task));
+        addTask(task);
     });
 };
 
